@@ -19,3 +19,7 @@ test("Any amount of numbers => returns its sum", () => {
 test("Newlines as separators => returns its sum", () => {
   expect(add("1\n2,3")).toBe(6);
 });
+
+test("Custom single char delimiter  => returns its sum", () => {
+  expect(add("//;\n1;2")).toBe(3);
+});
