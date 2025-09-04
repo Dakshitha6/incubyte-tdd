@@ -23,3 +23,7 @@ test("Newlines as separators => returns its sum", () => {
 test("Custom single char delimiter  => returns its sum", () => {
   expect(add("//;\n1;2")).toBe(3);
 });
+
+test("Negative numbers throw and list all negatives", () => {
+  expect(() => add("1,-2,3,-4")).toThrow("Negative numbers not allowed -2,-4");
+});
