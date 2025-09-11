@@ -1,10 +1,16 @@
 function add(numbers) {
   if (numbers === "") return 0;
 
+  let isMultiply;
   let delimiter = /,|\n/;
   if (numbers.startsWith("//")) {
     const parts = numbers.split("\n");
-    delimiter = new RegExp(parts[0].slice(2));
+    isMultiply = parts[0].slice(2) == "*" ? true : false;
+    if (isMultiply) {
+      delimiter = new RegExp("\\*");
+    } else {
+      delimiter = new RegExp(parts[0].slice(2));
+    }
     numbers = parts[1];
   }
 
@@ -17,6 +23,11 @@ function add(numbers) {
   }
 
   let sum = 0;
+  if (isMultiply) {
+    let prod = 1;
+    for (let val of values) prod *= val;
+    return prod;
+  }
   for (let v of values) sum += v;
   return sum;
 }

@@ -27,3 +27,7 @@ test("Custom single char delimiter  => returns its sum", () => {
 test("Negative numbers throw and list all negatives", () => {
   expect(() => add("1,-2,3,-4")).toThrow("Negative numbers not allowed -2,-4");
 });
+
+test("Custom delimeter => return its multiplication", () => {
+  expect(add("//*\n1*2")).toBe(2);
+});
