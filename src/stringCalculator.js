@@ -14,6 +14,7 @@ function add(numbers) {
     numbers = parts[1];
   }
 
+  console.log("delimiter", delimiter);
   const values = numbers.split(delimiter).map(Number);
   const negativeNumbers = values.filter((v) => v < 0);
   if (negativeNumbers.length > 0) {
